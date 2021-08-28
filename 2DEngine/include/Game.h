@@ -4,9 +4,9 @@
 class Game
 {
 public:
-	
+
 	Game();
-	
+
 	void init();
 
 	void handleEvents();
@@ -18,20 +18,17 @@ public:
 	void release();
 
 	bool isRunning();
-	
+
 private:
 	bool is_Running;
 
-	SDL_Renderer *renderer;
+	SDL_Renderer* renderer;
 
-	SDL_Window *window;
+	SDL_Window* window;
 
 	void initSDL();
 
 	void createWindowAndRenderer();
 };
 
-
 #endif // SDL_PROJECT_GAME_H
-
-
