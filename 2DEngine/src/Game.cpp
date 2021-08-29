@@ -6,14 +6,29 @@
 Game::Game()
 {
 	is_Running = true;
+	frameIndex = 0;
 }
 
 void Game::init()
 {
 	initSDL();
 	createWindowAndRenderer();
+	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 
-	IMG_Load("");
+	SDL_Surface *surfaceTemp = IMG_Load("resources/hero_walk.png");
+	heroTexture =  SDL_CreateTextureFromSurface(renderer, surfaceTemp);
+	//SDL_QueryTexture(heroTexture, NULL, NULL, &sourceHeroRect.w, &sourceHeroRect.h);
+
+	sourceHeroRect.x = frameIndex * 587;
+    sourceHeroRect.y = 0;
+    sourceHeroRect.w = 587;
+    sourceHeroRect.h = 707;
+
+	destHeroRect.x = 0;
+    destHeroRect.y = 155;
+    destHeroRect.w = 195;
+    destHeroRect.h = 235;
+	SDL_FreeSurface(surfaceTemp);
 }
 
 void Game::handleEvents()
@@ -30,13 +45,16 @@ void Game::handleEvents()
 
 void Game::update()
 {
+	frameIndex = int(((SDL_GetTicks() / 100) % 10));
+	sourceHeroRect.x = frameIndex * 587;
+	destHeroRect.x += 1;
 }
 
 void Game::render()
 {
-	SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
-
 	SDL_RenderClear(renderer);
+
+	SDL_RenderCopyEx(renderer, heroTexture, &sourceHeroRect, &destHeroRect, 0, NULL, SDL_FLIP_NONE );
 
 	SDL_RenderPresent(renderer);
 }

@@ -26,6 +26,13 @@ private:
 
 	SDL_Window* window;
 
+	SDL_Texture *heroTexture;
+
+	SDL_Rect sourceHeroRect;
+    SDL_Rect destHeroRect;
+
+    int frameIndex;
+
 	void initSDL();
 
 	void createWindowAndRenderer();

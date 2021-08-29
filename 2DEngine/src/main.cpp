@@ -3,7 +3,8 @@
 #include "Game.h"
 #include <exception>
 
-int main(int argc, char* args[]) {
+int main(int argc, char* args[])
+{
 	try
 	{
 		auto game = new Game();
