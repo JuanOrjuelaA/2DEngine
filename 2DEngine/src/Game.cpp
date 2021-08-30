@@ -24,7 +24,7 @@ void Game::init()
     sourceHeroRect.w = 587;
     sourceHeroRect.h = 707;
 
-	destHeroRect.x = 0;
+	destHeroRect.x = 150;
     destHeroRect.y = 155;
     destHeroRect.w = 195;
     destHeroRect.h = 235;
@@ -47,7 +47,6 @@ void Game::update()
 {
 	frameIndex = int(((SDL_GetTicks() / 100) % 10));
 	sourceHeroRect.x = frameIndex * 587;
-	destHeroRect.x += 1;
 }
 
 void Game::render()
