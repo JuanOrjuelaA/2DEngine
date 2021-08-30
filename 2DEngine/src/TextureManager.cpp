@@ -39,6 +39,6 @@ void TextureManager::drawFrame(std::string id, int x, int y, int width, int heig
 	destRect.w = scaledWidth;
 	destRect.h = scaledHeight;
 
-	SDL_RenderCopyEx(pRenderer, m_textureMap[id], &srcRect, &destRect, 0, NULL, flip);
+	SDL_RenderCopyEx(pRenderer, m_textureMap[id], &srcRect, &destRect, 0, nullptr, flip);
 
 }
