@@ -1,11 +1,14 @@
 #ifndef SDL_PROJECT_GAME_H
 #define SDL_PROJECT_GAME_H
+#include "TextureManager.h"
 
 class Game
 {
 public:
 
 	Game();
+
+	~Game();
 
 	void init();
 
@@ -22,16 +25,13 @@ public:
 private:
 	bool is_Running;
 
-	SDL_Renderer* renderer;
+	TextureManager *m_texture_manager;
 
-	SDL_Window* window;
+	SDL_Renderer* m_renderer;
 
-	SDL_Texture *heroTexture;
+	SDL_Window* m_window;
 
-	SDL_Rect sourceHeroRect;
-    SDL_Rect destHeroRect;
-
-    int frameIndex;
+    int m_frameIndex;
 
 	void initSDL();
 

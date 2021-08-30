@@ -1,34 +1,28 @@
 #include <SDL.h>
-#include <SDL_image.h>
 #include "Game.h"
 #include <include/Exceptions/SDL_Exception.h>
 
 Game::Game()
 {
 	is_Running = true;
-	frameIndex = 0;
+	m_frameIndex = 0;
+	m_texture_manager = new TextureManager();
 }
+
+Game::~Game()
+{
+	delete m_texture_manager;
+}
+
 
 void Game::init()
 {
 	initSDL();
 	createWindowAndRenderer();
-	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+	SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, 255);
 
-	SDL_Surface *surfaceTemp = IMG_Load("resources/hero_walk.png");
-	heroTexture =  SDL_CreateTextureFromSurface(renderer, surfaceTemp);
-	//SDL_QueryTexture(heroTexture, NULL, NULL, &sourceHeroRect.w, &sourceHeroRect.h);
+	m_texture_manager->loadImage("resources/hero_walk.png", "hero", m_renderer);
 
-	sourceHeroRect.x = frameIndex * 587;
-    sourceHeroRect.y = 0;
-    sourceHeroRect.w = 587;
-    sourceHeroRect.h = 707;
-
-	destHeroRect.x = 150;
-    destHeroRect.y = 155;
-    destHeroRect.w = 195;
-    destHeroRect.h = 235;
-	SDL_FreeSurface(surfaceTemp);
 }
 
 void Game::handleEvents()
@@ -45,24 +39,23 @@ void Game::handleEvents()
 
 void Game::update()
 {
-	frameIndex = int(((SDL_GetTicks() / 100) % 10));
-	sourceHeroRect.x = frameIndex * 587;
+	m_frameIndex = int(((SDL_GetTicks() / 100) % 10));
 }
 
 void Game::render()
 {
-	SDL_RenderClear(renderer);
+	SDL_RenderClear(m_renderer);
 
-	SDL_RenderCopyEx(renderer, heroTexture, &sourceHeroRect, &destHeroRect, 0, NULL, SDL_FLIP_NONE );
+	m_texture_manager->drawFrame("hero", 150, 155, 587, 707,195 ,235, 1, m_frameIndex, m_renderer);
 
-	SDL_RenderPresent(renderer);
+	SDL_RenderPresent(m_renderer);
 }
 
 void Game::release()
 {
-	SDL_DestroyRenderer(renderer);
+	SDL_DestroyRenderer(m_renderer);
 
-	SDL_DestroyWindow(window);
+	SDL_DestroyWindow(m_window);
 
 	SDL_Quit();
 }
@@ -83,8 +76,8 @@ void Game::initSDL()
 
 void Game::createWindowAndRenderer()
 {
-	SDL_CreateWindowAndRenderer(512, 512, SDL_WINDOW_SHOWN, &window, &renderer);
-	if (window == NULL || renderer == NULL)
+	SDL_CreateWindowAndRenderer(512, 512, SDL_WINDOW_SHOWN, &m_window, &m_renderer);
+	if (m_window == NULL || m_renderer == NULL)
 	{
 		throw SDL_Exception(SDL_GetError());
 	}
