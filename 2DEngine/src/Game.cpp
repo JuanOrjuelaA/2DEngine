@@ -39,7 +39,7 @@ void Game::handleEvents()
 
 void Game::update()
 {
-	m_frameIndex = int(((SDL_GetTicks() / 100) % 10));
+	m_frameIndex = static_cast<int>((SDL_GetTicks() / 100) % 10);
 }
 
 void Game::render()
