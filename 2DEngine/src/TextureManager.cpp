@@ -3,8 +3,7 @@
 #include <SDL_image.h>
 
 
-
-bool TextureManager::loadImage(std::string fileName, std::string id, SDL_Renderer* pRenderer)
+bool TextureManager::loadImage(const std::string &fileName, const std::string &id, SDL_Renderer *pRenderer)
 {
 	const auto pTempSurface = IMG_Load(fileName.c_str());
 
@@ -24,7 +23,7 @@ bool TextureManager::loadImage(std::string fileName, std::string id, SDL_Rendere
 	return false;
 }
 
-void TextureManager::drawFrame(std::string id, int x, int y, int width, int height, int scaledWidth, int scaledHeight, int currentRow, int currentFrame, SDL_Renderer* pRenderer, SDL_RendererFlip flip)
+void TextureManager::drawFrame(const std::string &id, int x, int y, int width, int height, int scaledWidth, int scaledHeight, int currentRow, int currentFrame, SDL_Renderer* pRenderer, SDL_RendererFlip flip)
 {
 	SDL_Rect srcRect;
 	SDL_Rect destRect;
