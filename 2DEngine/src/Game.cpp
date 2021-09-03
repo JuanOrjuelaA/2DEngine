@@ -46,6 +46,7 @@ void Game::render()
 {
 	SDL_RenderClear(m_renderer);
 
+	m_texture_manager->drawFrame("hero", 0, 0, 587, 707,195 ,235, 1, m_frameIndex, m_renderer);
 	m_texture_manager->drawFrame("hero", 150, 155, 587, 707,195 ,235, 1, m_frameIndex, m_renderer);
 
 	SDL_RenderPresent(m_renderer);
@@ -77,7 +78,7 @@ void Game::initSDL()
 void Game::createWindowAndRenderer()
 {
 	SDL_CreateWindowAndRenderer(512, 512, SDL_WINDOW_SHOWN, &m_window, &m_renderer);
-	if (m_window == NULL || m_renderer == NULL)
+	if (m_window == nullptr || m_renderer == nullptr)
 	{
 		throw SDL_Exception(SDL_GetError());
 	}
