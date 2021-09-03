@@ -1,3 +1,4 @@
+#include <chrono>
 #include <SDL.h>
 #include <cstdio>
 #include "Game.h"
@@ -10,23 +11,20 @@ int main(int argc, char* args[])
 		auto game = new Game();
 		game->init();
 
+		auto lastTime = std::chrono::system_clock::now();
+
 		while (game->isRunning())
 		{
-			double start = SDL_GetTicks();
+			auto current = std::chrono::system_clock::now();
+			std::chrono::duration<double> elapsedSecs = current - lastTime;
+
 			game->handleEvents();
 
-			game->update();
+			game->update(elapsedSecs.count());
 
 			game->render();
 
-			const int MS_PER_FRAME = 16;
-			double end =  SDL_GetTicks();
-			auto delay = start +  MS_PER_FRAME - end;
-			if(delay > 0)
-			{
-				SDL_Delay(delay);
-			}
-			
+			lastTime = current;
 
 		}
 

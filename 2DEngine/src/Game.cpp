@@ -7,6 +7,7 @@ Game::Game()
 	is_Running = true;
 	m_frameIndex = 0;
 	m_texture_manager = new TextureManager();
+	m_heroXPosition = 0;
 }
 
 Game::~Game()
@@ -37,17 +38,18 @@ void Game::handleEvents()
 	}
 }
 
-void Game::update()
+void Game::update(double elapsedTime)
 {
 	m_frameIndex = static_cast<int>((SDL_GetTicks() / 100) % 10);
+	m_heroXPosition += 30 * elapsedTime;
+
 }
 
 void Game::render()
 {
 	SDL_RenderClear(m_renderer);
 
-	m_texture_manager->drawFrame("hero", 0, 0, 587, 707,195 ,235, 1, m_frameIndex, m_renderer);
-	m_texture_manager->drawFrame("hero", 150, 155, 587, 707,195 ,235, 1, m_frameIndex, m_renderer);
+	m_texture_manager->drawFrame("hero", m_heroXPosition, 155, 587, 707,195 ,235, 1, m_frameIndex, m_renderer);
 
 	SDL_RenderPresent(m_renderer);
 }

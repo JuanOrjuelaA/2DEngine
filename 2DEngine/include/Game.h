@@ -14,7 +14,7 @@ public:
 
 	void handleEvents();
 
-	void update();
+	void update(double elapsedTime);
 
 	void render();
 
@@ -32,6 +32,8 @@ private:
 	SDL_Window* m_window;
 
     int m_frameIndex;
+
+	double m_heroXPosition;
 
 	void initSDL();
 
