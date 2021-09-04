@@ -8,7 +8,7 @@ int main(int argc, char* args[])
 {
 	try
 	{
-		auto game = new Game();
+		const auto game = new Game();
 		game->init();
 
 		auto lastTime = std::chrono::system_clock::now();

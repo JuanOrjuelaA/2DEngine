@@ -6,13 +6,11 @@ Game::Game()
 {
 	is_Running = true;
 	m_frameIndex = 0;
-	m_texture_manager = new TextureManager();
 	m_heroXPosition = 0;
 }
 
 Game::~Game()
 {
-	delete m_texture_manager;
 }
 
 
@@ -22,8 +20,10 @@ void Game::init()
 	createWindowAndRenderer();
 	SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, 255);
 
-	m_texture_manager->loadImage("resources/hero_walk.png", "hero", m_renderer);
-
+	if(!TextureManager::getInstance()->loadImage("resources/hero_walk.png", "hero", m_renderer))
+	{
+		throw SDL_Exception("Texture 'resources/hero_walk.png' could not be loaded");
+	}
 }
 
 void Game::handleEvents()
@@ -49,7 +49,7 @@ void Game::render()
 {
 	SDL_RenderClear(m_renderer);
 
-	m_texture_manager->drawFrame("hero", m_heroXPosition, 155, 587, 707,195 ,235, 1, m_frameIndex, m_renderer);
+	TextureManager::getInstance()->drawFrame("hero", m_heroXPosition, 155, 587, 707,195 ,235, 1, m_frameIndex, m_renderer);
 
 	SDL_RenderPresent(m_renderer);
 }

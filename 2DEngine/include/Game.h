@@ -25,8 +25,6 @@ public:
 private:
 	bool is_Running;
 
-	TextureManager *m_texture_manager;
-
 	SDL_Renderer* m_renderer;
 
 	SDL_Window* m_window;
