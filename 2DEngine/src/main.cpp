@@ -4,6 +4,8 @@
 #include "Game.h"
 #include <exception>
 
+using namespace WitzEngine;
+
 int main(int argc, char* args[])
 {
 	try

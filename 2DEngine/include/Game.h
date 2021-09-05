@@ -2,40 +2,42 @@
 #define SDL_PROJECT_GAME_H
 #include "TextureManager.h"
 
-class Game
+namespace WitzEngine
 {
-public:
+	class Game
+	{
+	public:
 
-	Game();
+		Game();
 
-	~Game();
+		~Game();
 
-	void init();
+		void init();
 
-	void handleEvents();
+		void handleEvents();
 
-	void update(double elapsedTime);
+		void update(double elapsedTime);
 
-	void render();
+		void render();
 
-	void release();
+		void release();
 
-	bool isRunning();
+		bool isRunning();
 
-private:
-	bool is_Running;
+	private:
+		bool is_Running;
 
-	SDL_Renderer* m_renderer;
+		SDL_Renderer* m_renderer;
 
-	SDL_Window* m_window;
+		SDL_Window* m_window;
 
-    int m_frameIndex;
+	    int m_frameIndex;
 
-	double m_heroXPosition;
+		double m_heroXPosition;
 
-	void initSDL();
+		void initSDL();
 
-	void createWindowAndRenderer();
-};
-
+		void createWindowAndRenderer();
+	};
+}
 #endif // SDL_PROJECT_GAME_H

@@ -2,6 +2,9 @@
 #include "Game.h"
 #include <include/Exceptions/SDL_Exception.h>
 
+
+using namespace WitzEngine;
+
 Game::Game()
 {
 	is_Running = true;

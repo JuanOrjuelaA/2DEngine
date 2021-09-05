@@ -5,35 +5,39 @@
 #include <SDL_render.h>
 #include <string>
 
-class TextureManager
+namespace WitzEngine
 {
-public:
 
-	static TextureManager* getInstance()
+	class TextureManager
 	{
-		if(s_pInstance == nullptr)
+	public:
+
+		static TextureManager* getInstance()
 		{
-			s_pInstance = new TextureManager();
+			if(s_pInstance == nullptr)
+			{
+				s_pInstance = new TextureManager();
+				return s_pInstance;
+			}
 			return s_pInstance;
 		}
-		return s_pInstance;
-	}
 
-	bool loadImage(const std::string &fileName, const std::string &id, SDL_Renderer *pRenderer);
+		bool loadImage(const std::string &fileName, const std::string &id, SDL_Renderer *pRenderer);
 
-	void drawFrame(const std::string &id, int x, int y, int width, int height, int scaledWidth, int scaledHeight, int currentRow, int
-	               currentFrame, SDL_Renderer* pRenderer, SDL_RendererFlip
-	               flip = SDL_FLIP_NONE);
+		void drawFrame(const std::string &id, int x, int y, int width, int height, int scaledWidth, int scaledHeight, int currentRow, int
+		               currentFrame, SDL_Renderer* pRenderer, SDL_RendererFlip
+		               flip = SDL_FLIP_NONE);
 
-private:
-	TextureManager() = default;
+	private:
+		TextureManager() = default;
 
-	static TextureManager *s_pInstance;
+		static TextureManager *s_pInstance;
 
-	std::map<std::string, SDL_Texture*> m_textureMap;
+		std::map<std::string, SDL_Texture*> m_textureMap;
 
-};
+	};
 
-typedef TextureManager TextureManager;
+	typedef TextureManager TextureManager;
+}
 
 #endif // SDL_PROJECT_TEXTURE_MANAGER_H
