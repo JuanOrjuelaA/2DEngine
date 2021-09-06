@@ -17,13 +17,25 @@ namespace WitzEngine
 		float length() const;
 
 		Vector2 operator+(const Vector2& vector2) const;
-		friend Vector2& operator+=(Vector2& v1, const Vector2& v2);
+		friend Vector2& operator+=(Vector2& v1, const Vector2& v2)
+		{
+			v1.m_x += v2.m_x;
+			v1.m_y += v2.m_y;
+
+			return v1;
+		}
 
 		Vector2 operator*(float scalar) const;
 		Vector2& operator*=(float scalar);
 
 		Vector2 operator-(const Vector2& vector2) const;
-		friend Vector2& operator-=(Vector2& v1, const Vector2& v2);
+		friend Vector2& operator-=(Vector2& v1, const Vector2& v2)
+		{
+			v1.m_x -= v2.m_x;
+			v1.m_y -= v2.m_y;
+
+			return v1;
+		}
 
 		Vector2 operator/(float scalar) const;
 		Vector2& operator/=(float scalar);

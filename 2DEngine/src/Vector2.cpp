@@ -14,13 +14,6 @@ Vector2 Vector2::operator+ (const Vector2& vector2) const
 	return {m_x + vector2.m_x, m_y + vector2.m_y};
 }
 
-Vector2& WitzEngine::operator+=(Vector2& v1, const Vector2& v2)
-{
-	v1.m_x += v2.m_x;
-	v1.m_y += v2.m_y;
-
-	return v1;
-}
 
 Vector2 Vector2::operator*(float scalar) const
 {
@@ -40,13 +33,6 @@ Vector2 Vector2::operator-(const Vector2& vector2) const
 	return {m_x - vector2.m_x, m_y - vector2.m_y};
 }
 
-Vector2& WitzEngine::operator-=(Vector2& v1, const Vector2& v2)
-{
-	v1.m_x -= v2.m_x;
-	v1.m_y -= v2.m_y;
-
-	return v1;
-}
 
 Vector2 Vector2::operator/(float scalar) const
 {
