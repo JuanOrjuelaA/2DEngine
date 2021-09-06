@@ -1,5 +1,5 @@
-#ifndef SDL_PROJECT_GAME_H
-#define SDL_PROJECT_GAME_H
+#ifndef WITZ_ENGINE_GAME_H
+#define WITZ_ENGINE_GAME_H
 #include "TextureManager.h"
 
 namespace WitzEngine
@@ -40,4 +40,4 @@ namespace WitzEngine
 		void createWindowAndRenderer();
 	};
 }
-#endif // SDL_PROJECT_GAME_H
+#endif // WITZ_ENGINE_GAME_H

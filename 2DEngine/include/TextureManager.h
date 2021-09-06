@@ -1,5 +1,5 @@
-#ifndef SDL_PROJECT_TEXTURE_MANAGER_H
-#define SDL_PROJECT_TEXTURE_MANAGER_H
+#ifndef WITZ_ENGINE_TEXTURE_MANAGER_H
+#define WITZ_ENGINE_TEXTURE_MANAGER_H
 
 #include <map>
 #include <SDL_render.h>
@@ -26,4 +26,4 @@ namespace WitzEngine
 	};
 }
 
-#endif // SDL_PROJECT_TEXTURE_MANAGER_H
+#endif // WITZ_ENGINE_TEXTURE_MANAGER_H
