@@ -1,4 +1,4 @@
-#include <SDL.h>
+﻿#include <SDL.h>
 #include "Game.h"
 #include <include/Exceptions/SDL_Exception.h>
 
@@ -23,7 +23,7 @@ void Game::init()
 	createWindowAndRenderer();
 	SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, 255);
 
-	if(!TextureManager::getInstance()->loadImage("resources/hero_walk.png", "hero", m_renderer))
+	if(!TextureManager::GetInstance()->loadImage("resources/hero_walk.png", "hero", m_renderer))
 	{
 		throw SDL_Exception("Texture 'resources/hero_walk.png' could not be loaded");
 	}
@@ -52,7 +52,7 @@ void Game::render()
 {
 	SDL_RenderClear(m_renderer);
 
-	TextureManager::getInstance()->drawFrame("hero", m_heroXPosition, 155, 587, 707,195 ,235, 1, m_frameIndex, m_renderer);
+	TextureManager::GetInstance()->drawFrame("hero", m_heroXPosition, 155, 587, 707,195 ,235, 1, m_frameIndex, m_renderer);
 
 	SDL_RenderPresent(m_renderer);
 }

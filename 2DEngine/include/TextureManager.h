@@ -5,22 +5,14 @@
 #include <SDL_render.h>
 #include <string>
 
+#include "Singleton.h"
+
 namespace WitzEngine
 {
 
-	class TextureManager
+	class TextureManager : public Singleton<TextureManager>
 	{
 	public:
-
-		static TextureManager* getInstance()
-		{
-			if(s_pInstance == nullptr)
-			{
-				s_pInstance = new TextureManager();
-				return s_pInstance;
-			}
-			return s_pInstance;
-		}
 
 		bool loadImage(const std::string &fileName, const std::string &id, SDL_Renderer *pRenderer);
 
@@ -29,15 +21,9 @@ namespace WitzEngine
 		               flip = SDL_FLIP_NONE);
 
 	private:
-		TextureManager() = default;
-
-		static TextureManager *s_pInstance;
-
 		std::map<std::string, SDL_Texture*> m_textureMap;
 
 	};
-
-	typedef TextureManager TextureManager;
 }
 
 #endif // SDL_PROJECT_TEXTURE_MANAGER_H

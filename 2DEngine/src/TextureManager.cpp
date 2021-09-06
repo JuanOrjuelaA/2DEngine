@@ -4,7 +4,8 @@
 
 using namespace WitzEngine;
 
-TextureManager* TextureManager::s_pInstance = nullptr;
+template<> TextureManager* 
+Singleton<TextureManager>::m_instance = nullptr;
 
 bool TextureManager::loadImage(const std::string &fileName, const std::string &id, SDL_Renderer *pRenderer)
 {
