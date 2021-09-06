@@ -1,4 +1,4 @@
-#include "../include/TextureManager.h"
+#include "include/TextureManager.h"
 
 #include <SDL_image.h>
 

@@ -17,4 +17,4 @@ namespace WitzEngine
 	};
 }
 
-#endif //WITZ_ENGINE_EXCEPTION_H
+#endif

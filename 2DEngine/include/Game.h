@@ -40,4 +40,4 @@ namespace WitzEngine
 		void createWindowAndRenderer();
 	};
 }
-#endif // WITZ_ENGINE_GAME_H
+#endif

@@ -26,4 +26,4 @@ namespace WitzEngine
 	};
 }
 
-#endif // WITZ_ENGINE_TEXTURE_MANAGER_H
+#endif

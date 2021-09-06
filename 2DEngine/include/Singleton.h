@@ -44,5 +44,5 @@ namespace WitzEngine
 	}
 }
 
-#endif // WITZ_ENGINE_SINGLETON_H
+#endif
 
