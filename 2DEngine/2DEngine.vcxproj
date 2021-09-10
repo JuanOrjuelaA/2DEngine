@@ -152,6 +152,7 @@
   <ItemGroup>
     <ClInclude Include="include\Exceptions\SDL_Exception.h" />
     <ClInclude Include="include\Game.h" />
+    <ClInclude Include="include\GameObject.h" />
     <ClInclude Include="include\Singleton.h" />
     <ClInclude Include="include\TextureManager.h" />
     <ClInclude Include="include\Vector2.h" />
