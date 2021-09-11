@@ -1,7 +1,7 @@
 #include <chrono>
 #include <SDL.h>
 #include <cstdio>
-#include "Game.h"
+#include "../include/Game.h"
 #include <exception>
 
 using namespace WitzEngine;

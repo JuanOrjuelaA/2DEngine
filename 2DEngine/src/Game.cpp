@@ -1,6 +1,6 @@
 ﻿#include <SDL.h>
-#include "Game.h"
-#include <include/Exceptions/SDL_Exception.h>
+#include "../include/Game.h"
+#include "../include/Exceptions/SDL_Exception.h"
 
 
 using namespace WitzEngine;
