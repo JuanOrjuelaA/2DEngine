@@ -12,9 +12,7 @@ Game::Game()
 	m_heroXPosition = 0;
 }
 
-Game::~Game()
-{
-}
+Game::~Game() = default;
 
 
 void Game::init()

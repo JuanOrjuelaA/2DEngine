@@ -1,5 +1,6 @@
 #include "../include/TextureManager.h"
 
+#include <cassert>
 #include <SDL_image.h>
 
 using namespace WitzEngine;
@@ -27,7 +28,8 @@ bool TextureManager::loadImage(const std::string &fileName, const std::string &i
 	return false;
 }
 
-void TextureManager::drawFrame(const std::string &id, int x, int y, int width, int height, int scaledWidth, int scaledHeight, int currentRow, int currentFrame, SDL_Renderer* pRenderer, SDL_RendererFlip flip)
+void TextureManager::drawFrame(const std::string &id, int x, int y, int width, int height, int scaledWidth, int scaledHeight, int currentRow, 
+		                       int currentFrame, SDL_Renderer* pRenderer, SDL_RendererFlip flip)
 {
 	SDL_Rect srcRect;
 	SDL_Rect destRect;
