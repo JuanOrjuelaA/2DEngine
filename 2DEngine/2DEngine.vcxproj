@@ -119,6 +119,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Users\jorjuela\OneDrive\Documentos\Unity\2dEngine\2DEngine\2DEngine;C:\Users\jorjuela\OneDrive\Documentos\Unity\2dEngine\2DEngine\2DEngine\src;C:\Users\jorjuela\OneDrive\Documentos\Unity\2dEngine\2DEngine\2DEngine\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
